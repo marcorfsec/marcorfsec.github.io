@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>CV — Marco Rodríguez Fernández</title>
+<style>
+  /* ------------------------------------------------------------------
+     CV para impresión y lectura por ATS.
+
+     Restricciones duras, no negociables:
+       - una sola columna de flujo, sin cajas flotantes
+       - sin imágenes, iconos ni gráficos
+       - texto real y seleccionable
+       - una página A4
+
+     Dirección tipográfica: prosa en serif (Palatino Linotype) y metadatos
+     en monoespaciada (Consolas). Ambas vienen con Windows, así que el PDF
+     no depende de ninguna descarga y las métricas no cambian.
+
+     NO cambiar el serif a Cambria por bonita que parezca: al imprimir a
+     PDF coloca los glifos de forma que el extractor de texto lee 37
+     tabuladores en lugar de espacios y rompe las frases literales, lo que
+     puede hacer que un ATS no encuentre las palabras clave. Verificado
+     comparando Cambria, Georgia, Constantia, Palatino y Calibri.
+     ------------------------------------------------------------------ */
+
+  @page { size: A4; margin: 13mm 15mm; }
+
+  :root {
+    --tinta: #14171a;
+    --tinta-suave: #4a5258;
+    --acento: #16324f;
+    --linea: #c8ced3;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    font-size: 9.6pt;
+    line-height: 1.38;
+    color: var(--tinta);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- cabecera ---------- */
+
+  .nombre {
+    font-size: 21pt;
+    line-height: 1;
+    margin: 0;
+    color: var(--acento);
+    /* Sin interletraje negativo: a este tamaño hace que el extractor de
+       texto interprete los espacios como tabuladores. */
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .titular {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 8.2pt;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--tinta-suave);
+    margin: 4px 0 0;
+  }
+
+  .contacto {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 7.9pt;
+    line-height: 1.5;
+    color: var(--tinta-suave);
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1.6px solid var(--acento);
+  }
+  .contacto a { color: var(--tinta-suave); text-decoration: none; }
+  .sep { color: var(--linea); padding: 0 3px; }
+
+  /* ---------- secciones ---------- */
+
+  h2 {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 7.8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--acento);
+    margin: 10px 0 5px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+  }
+  h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--linea);
+  }
+
+  p { margin: 0 0 4px; }
+
+  .destacado { font-weight: 700; color: var(--acento); }
+
+  /* ---------- entradas ---------- */
+
+  .item { margin-bottom: 6.5px; }
+
+  .item-cab {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .item-tit { font-weight: 700; font-size: 9.7pt; }
+
+  .item-fecha {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 7.6pt;
+    color: var(--tinta-suave);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  ul { margin: 2.5px 0 0; padding-left: 12px; list-style: none; }
+  li { margin-bottom: 1.5px; position: relative; }
+  li::before {
+    content: "—";
+    position: absolute;
+    left: -12px;
+    color: var(--linea);
+  }
+
+  .id {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 7.4pt;
+    color: var(--tinta-suave);
+  }
+
+  /* ---------- bloques etiquetados ---------- */
+
+  .fila { display: flex; gap: 9px; margin-bottom: 2.5px; align-items: baseline; }
+  .etq {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--acento);
+    flex: 0 0 74px;
+  }
+  .val { flex: 1; }
+
+  .fuente {
+    font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+    font-size: 7.5pt;
+    color: var(--tinta-suave);
+    margin-top: 3px;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="nombre">Marco Rodríguez Fernández</h1>
+<div class="titular">Analista de Ciberseguridad Junior · SOC · Pentesting</div>
+<div class="contacto">
+  Gijón, Asturias<span class="sep">·</span>[TU TELÉFONO]<span class="sep">·</span><a href="mailto:marcurf86@gmail.com">marcurf86@gmail.com</a><br>
+  <a href="https://marcorfsec.github.io">marcorfsec.github.io</a><span class="sep">·</span><a href="https://github.com/marcorfsec">github.com/marcorfsec</a><span class="sep">·</span><a href="URL_LINKEDIN">linkedin.com/in/marcorfsec</a><span class="sep">·</span><a href="URL_HTB">HackTheBox</a>
+</div>
+
+<h2>Perfil</h2>
+<p>
+  Perfil técnico autodidacta con formación intensiva y reciente en seguridad
+  ofensiva: 269 laboratorios de hacking web sobre 31 vulnerabilidades reales,
+  además de fundamentos de Linux, redes y programación. Preparando la
+  certificación eJPT. Busco incorporarme a un SOC de nivel 1 para desarrollar
+  carrera en operaciones de seguridad.
+  <span class="destacado">Disponibilidad total para turnos rotativos 24x7,
+  incluidas noches, con preferencia por el turno nocturno.</span>
+  Abierto a traslado nacional y a modalidad remota.
+</p>
+
+<h2>Certificaciones</h2>
+<div class="fila">
+  <div class="etq">eJPT</div>
+  <div class="val">INE Security — en preparación, examen previsto para septiembre de 2026.</div>
+</div>
+
+<h2>Proyectos y laboratorios</h2>
+
+<div class="item">
+  <div class="item-cab">
+    <span class="item-tit">Explotación de vulnerabilidades web — 269 laboratorios</span>
+    <span class="item-fecha">jul. 2026</span>
+  </div>
+  <ul>
+    <li>Explotación práctica de 31 clases de vulnerabilidad sobre entornos controlados: inyección SQL, XSS, SSRF, XXE, deserialización insegura, LFI/RFI y fallos de control de acceso.</li>
+    <li>Burp Suite para interceptar, modificar y reproducir peticiones; explotación manual antes que automatizada para entender la causa raíz.</li>
+    <li><span class="id">Certificado verificable · ID 5294-9832-3588-2758</span></li>
+  </ul>
+</div>
+
+<div class="item">
+  <div class="item-cab">
+    <span class="item-tit">Enumeración y explotación de sistemas — 53 h</span>
+    <span class="item-fecha">jul. 2026</span>
+  </div>
+  <ul>
+    <li>Ciclo completo de intrusión sobre máquinas vulnerables: reconocimiento, enumeración de servicios, explotación, acceso y escalada de privilegios en Linux y Windows.</li>
+    <li>Nmap, Gobuster, Hydra, Netcat, Metasploit y John the Ripper.</li>
+    <li><span class="id">Certificado verificable · ID 2676-5668-8596-9026</span></li>
+  </ul>
+</div>
+
+<div class="item">
+  <div class="item-cab">
+    <span class="item-tit">Herramientas ofensivas propias en Python — 35 h</span>
+    <span class="item-fecha">jun. 2026</span>
+  </div>
+  <ul>
+    <li>Desarrollo de utilidades de reconocimiento y automatización: escaneo de puertos con sockets, fuerza bruta de directorios y manipulación de peticiones HTTP.</li>
+    <li><span class="id">Certificado verificable · ID 7909-6445-4078-7259</span></li>
+  </ul>
+</div>
+
+<div class="item">
+  <div class="item-cab">
+    <span class="item-tit">Writeups técnicos — marcorfsec.github.io</span>
+    <span class="item-fecha">desde ago. 2026</span>
+  </div>
+  <ul>
+    <li>Publicación continua de resoluciones de máquinas retiradas de HackTheBox y salas de TryHackMe, documentando la metodología y el razonamiento, no solo el resultado.</li>
+  </ul>
+</div>
+
+<h2>Competencias técnicas</h2>
+<div class="fila"><div class="etq">Sistemas</div><div class="val">Linux (Arch, Debian/Kali), administración, permisos, bash, systemd · Windows</div></div>
+<div class="fila"><div class="etq">Redes</div><div class="val">TCP/IP, modelo OSI, DNS, HTTP/HTTPS, análisis de tráfico</div></div>
+<div class="fila"><div class="etq">Ofensiva</div><div class="val">Enumeración, explotación web, escalada de privilegios, post-explotación</div></div>
+<div class="fila"><div class="etq">Herramientas</div><div class="val">Nmap, Burp Suite, Metasploit, Wireshark, Gobuster, Hydra, John the Ripper</div></div>
+<div class="fila"><div class="etq">Lenguajes</div><div class="val">Python, Bash, JavaScript, SQL</div></div>
+
+<h2>Formación</h2>
+<div class="fila">
+  <div class="etq">Hack4u</div>
+  <div class="val">
+    Hacking Web · Introducción al Hacking (53 h) · Python Ofensivo (35 h) ·
+    Introducción a Linux · Personalización de entorno en Linux · Arch Linux
+    <span class="id">— jun.-jul. 2026</span>
+  </div>
+</div>
+<div class="fila">
+  <div class="etq">Cisco</div>
+  <div class="val">
+    Linux Essentials · NDG Linux I · NDG Linux II · Python Essentials 1 y 2 ·
+    JavaScript Essentials 1
+    <span class="id">— jun. 2026</span>
+  </div>
+</div>
+<div class="fuente">Certificados verificables en marcorfsec.github.io/formacion</div>
+
+<h2>Idiomas</h2>
+<div class="fila"><div class="etq">Español</div><div class="val">Nativo</div></div>
+<div class="fila"><div class="etq">Inglés</div><div class="val">B1 — documentación técnica con soltura; en progresión hacia B2</div></div>
+
+</body>
+</html>

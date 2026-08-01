@@ -6,27 +6,28 @@ theme: jekyll-theme-chirpy
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: es-ES
 
 # Change to your timezone › https://zones.arilyn.cc
-timezone:
+timezone: Europe/Madrid
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Marco Rodríguez Fernández
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+tagline: Analista de Ciberseguridad Junior — SOC y Pentesting
 
-description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+description: >-
+  Writeups, laboratorios y notas técnicas de ciberseguridad.
+  Camino hacia analista SOC y pentesting.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+url: "https://marcorfsec.github.io"
 
 github:
-  username: github_username # change to your GitHub username
+  username: marcorfsec
 
 twitter:
   username: twitter_username # change to your Twitter username
@@ -34,16 +35,14 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Marco Rodríguez Fernández
+  email: marcurf86@gmail.com
   fediverse_handle: # fill in your fediverse handle. E.g. "@username@domain.com"
   links:
-    # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    # El primer elemento es el enlace del propietario del copyright
+    - https://github.com/marcorfsec
+    # Descomenta y ajusta cuando tengas el perfil de LinkedIn (tarea 7)
+    # - https://www.linkedin.com/in/marcorfsec
 
 # Site Verification Settings
 webmaster_verifications:
@@ -89,7 +88,7 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
-theme_mode: # [light | dark]
+theme_mode: dark
 
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url

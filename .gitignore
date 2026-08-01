@@ -1,3 +1,13 @@
+# --- Datos personales que NO deben publicarse ---
+
+# Versión del CV con teléfono: es la que se envía en las candidaturas.
+# La web publica la versión sin teléfono, para no exponer el número a
+# los rastreadores de spam.
+assets/cv/CV-Marco-Rodriguez-Fernandez-contacto.pdf
+
+# Teléfono y demás datos que consume _cv/generar.py
+_cv/datos-privados.txt
+
 # Bundler cache
 .bundle
 vendor
