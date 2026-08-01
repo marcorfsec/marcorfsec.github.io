@@ -68,6 +68,21 @@ def leer_telefono() -> str | None:
     return None
 
 
+def quitar_foto_si_falta(html: str) -> tuple[str, bool]:
+    """Retira la foto del CV si el fichero todavía no existe.
+
+    Sin esto el PDF saldría con el icono de imagen rota, que es peor que
+    no llevar foto. En cuanto se deje la imagen en su sitio, aparece sola.
+    """
+    m = re.search(r'<img class="foto" src="([^"]+)"[^>]*>', html)
+    if not m:
+        return html, False
+    ruta = (AQUI / m.group(1)).resolve()
+    if ruta.exists():
+        return html, True
+    return html.replace(m.group(0), ""), False
+
+
 def quitar_enlaces_pendientes(html: str) -> tuple[str, list[str]]:
     """Elimina los enlaces cuyo destino sigue siendo un marcador.
 
@@ -115,6 +130,12 @@ def main() -> int:
 
     html = FUENTE.read_text(encoding="utf-8")
     navegador = buscar_navegador()
+
+    html, con_foto = quitar_foto_si_falta(html)
+    if not con_foto:
+        print("AVISO: el CV sale sin foto porque falta assets/img/foto.jpg.")
+        print("       Deja ahí una foto sobria y vuelve a ejecutar.")
+        print()
 
     html, pendientes = quitar_enlaces_pendientes(html)
     if pendientes:

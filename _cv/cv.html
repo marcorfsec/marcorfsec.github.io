@@ -78,6 +78,19 @@
   .contacto a { color: var(--tinta-suave); text-decoration: none; }
   .sep { color: var(--linea); padding: 0 3px; }
 
+  /* La foto va flotada, no en absoluto: así el texto la rodea en lugar de
+     quedar tapado. Una imagen no aporta texto al PDF, de modo que su
+     posición en el documento no altera el orden de extracción que lee un
+     ATS — sigue siendo nombre → titular → contacto → perfil. */
+  .foto {
+    float: right;
+    width: 26mm;
+    height: 33mm;
+    object-fit: cover;
+    margin: 0 0 3mm 5mm;
+    border: 1px solid var(--linea);
+  }
+
   /* ---------- secciones ---------- */
 
   h2 {
@@ -163,11 +176,14 @@
 </head>
 <body>
 
+<img class="foto" src="../assets/img/foto.jpg" alt="">
+<div class="cabecera">
 <h1 class="nombre">Marco Rodríguez Fernández</h1>
 <div class="titular">Analista de Ciberseguridad Junior · SOC · Pentesting</div>
 <div class="contacto">
   Gijón, Asturias<span class="sep">·</span>[TU TELÉFONO]<span class="sep">·</span><a href="mailto:marcurf86@gmail.com">marcurf86@gmail.com</a><br>
   <a href="https://marcorfsec.github.io">marcorfsec.github.io</a><span class="sep">·</span><a href="https://github.com/marcorfsec">github.com/marcorfsec</a><span class="sep">·</span><a href="URL_LINKEDIN">linkedin.com/in/marcorfsec</a><span class="sep">·</span><a href="URL_HTB">HackTheBox</a>
+</div>
 </div>
 
 <h2>Perfil</h2>
