@@ -15,8 +15,15 @@ tabs:
   tags: Etiquetas
   archives: Archivo
   about: Acerca de
+  # OJO: el comentario de arriba induce a error. Para el <title> del
+  # navegador, _includes/head.html de Chirpy usa como clave el TÍTULO de
+  # la página en minúsculas (`page.title | downcase`), no el nombre del
+  # fichero, y no tiene valor por defecto: si la clave no existe, el
+  # título sale vacío. La barra lateral sí usa el nombre de fichero.
+  # Por eso cada pestaña propia lleva las dos claves.
   cv: CV
   formacion: Formación
+  formación: Formación
 
 # the text displayed in the search bar & search results
 search:
