@@ -324,6 +324,8 @@ title: CV
     <a class="btn primario" href="/assets/cv/CV-Marco-Rodriguez-Fernandez.pdf">Descargar PDF</a>
     <a class="btn" href="mailto:marcurf86@gmail.com">Escríbeme</a>
     <a class="btn" href="https://github.com/marcorfsec">GitHub</a>
+    <a class="btn" href="https://profile.hackthebox.com/profile/019f0e69-c416-71d3-a69e-99bad41fad03">HackTheBox</a>
+    <a class="btn" href="https://tryhackme.com/p/marcorfsec">TryHackMe</a>
     <a class="btn" href="/formacion/">Certificados</a>
   </div>
 </div>

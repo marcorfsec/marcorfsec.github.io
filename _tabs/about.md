@@ -25,3 +25,5 @@ TryHackMe y laboratorios propios. Escribo en español.
 - **[Ver mi CV completo](/cv/)** · [descargar en PDF](/assets/cv/CV-Marco-Rodriguez-Fernandez.pdf)
 - Correo: [marcurf86@gmail.com](mailto:marcurf86@gmail.com)
 - GitHub: [github.com/marcorfsec](https://github.com/marcorfsec)
+- HackTheBox: [mi perfil](https://profile.hackthebox.com/profile/019f0e69-c416-71d3-a69e-99bad41fad03)
+- TryHackMe: [tryhackme.com/p/marcorfsec](https://tryhackme.com/p/marcorfsec)
