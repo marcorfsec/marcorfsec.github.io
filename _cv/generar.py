@@ -68,6 +68,24 @@ def leer_telefono() -> str | None:
     return None
 
 
+def quitar_enlaces_pendientes(html: str) -> tuple[str, list[str]]:
+    """Elimina los enlaces cuyo destino sigue siendo un marcador.
+
+    Es preferible que el CV no muestre el enlace a que lo muestre roto.
+    En cuanto se ponga la URL real en `cv.html`, el enlace reaparece solo.
+    """
+    pendientes = re.findall(r'<a href="(URL_[^"]*)">', html)
+    if not pendientes:
+        return html, []
+
+    # Se retira también un separador adyacente, delante o detrás según la
+    # posición del enlace, para no dejar un '·' suelto.
+    html = re.sub(r'<a href="URL_[^"]*">.*?</a><span class="sep">·</span>', "", html)
+    html = re.sub(r'<span class="sep">·</span><a href="URL_[^"]*">.*?</a>', "", html)
+    html = re.sub(r'<a href="URL_[^"]*">.*?</a>', "", html)
+    return html, pendientes
+
+
 def imprimir(html: str, destino: Path, navegador: Path) -> None:
     temporal = AQUI / "_tmp_cv.html"
     temporal.write_text(html, encoding="utf-8")
@@ -97,6 +115,14 @@ def main() -> int:
 
     html = FUENTE.read_text(encoding="utf-8")
     navegador = buscar_navegador()
+
+    html, pendientes = quitar_enlaces_pendientes(html)
+    if pendientes:
+        print("AVISO: se han retirado del CV estos enlaces por no tener URL real:")
+        for p in pendientes:
+            print(f"  - {p}")
+        print("       Pon la URL en cv.html y vuelve a ejecutar para recuperarlos.")
+        print()
 
     # --- pública: sin teléfono
     publico = html.replace(FRAGMENTO_TEL, "").replace(MARCA_TEL, "")
